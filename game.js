@@ -12,11 +12,12 @@ option to play again
 
 */
 const weapons = ["hammer", "sword", "shield", "spear", "knife"]
-function RPS {
+
+function RPS() {
     document.body.addEventListener("click",function(choice){
 
     }),
-    function enemy {
+    function enemy() {
         weapons[new random().nextInt(weapons.length)]
     }    
     if (choice===enemy){

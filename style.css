@@ -8,3 +8,9 @@ style win and loss letters
 h1,h2{
     text-align: center
 }
+#card {
+    transition: .5s
+}
+#card:hover {
+        transform: scale(1.25)
+}
