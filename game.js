@@ -13,7 +13,7 @@ option to play again
 */
 const weapons = ["hammer", "sword", "shield", "spear", "knife"]
 
-function RPS() {
+function RPS(choice,enemy) {
     document.body.addEventListener("click",function(choice){
 
     }),
@@ -65,3 +65,4 @@ function RPS() {
     }
     
 }
+console.log(RPS(choice, enemy))
