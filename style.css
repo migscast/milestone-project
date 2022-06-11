@@ -8,9 +8,37 @@ style win and loss letters
 h1,h2{
     text-align: center
 }
-#card {
+.card {
     transition: .5s
 }
-#card:hover {
-        transform: scale(1.25)
+.card:hover {
+    filter:none;
+    transform: scale(1.1)
+}
+#enemy, #playZone:hover {
+    transform:none
+}
+#enemy{
+    background-color: crimson;
+    border: 1px solid black;
+   
+}
+#playZone{
+    border:1px solid white;
+    background-color: rgb(11, 105, 182);
+    display:block
+}
+.card{
+    background-color:black;
+    border:1px solid black;
+    height: 300px;
+    width: 200px;
+    margin: auto;
+    display: inline-block
+}
+#header{
+    border-color: black
+}
+#divider{
+    border-color:rgb(17, 128, 218)
 }
