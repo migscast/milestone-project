@@ -26,15 +26,17 @@ h1,h2{
 #playZone{
     border:1px solid white;
     background-color: rgb(11, 105, 182);
-    display:block
+    display:block;
+    margin: auto
 }
 .card{
     background-color:black;
     border:1px solid black;
-    height: 300px;
-    width: 200px;
-    margin: auto;
-    display: inline-block
+    height: 250px;
+    width: 150px;
+    margin:10px;
+    display: inline-block;
+    
     
 }
 #header{
@@ -42,4 +44,13 @@ h1,h2{
 }
 #divider{
     border-color:rgb(17, 128, 218)
+}
+img{
+    width:150px;
+    height:250px;
+    object-fit: cover;
+}
+.playerCards, .enemyCards {
+    display:flex;
+    justify-content: center;
 }
