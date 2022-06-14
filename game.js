@@ -13,12 +13,13 @@ option to play again
 */
 const weapons = ["hammer", "sword", "shield", "spear", "knife"]
 
-function RPS(choice,enemy) {
-    document.body.addEventListener("click",function(choice){
-
+/* function RPS(choice,enemy) {
+    let choice = 
+        
     }),
     function enemy() {
-        weapons[new random().nextInt(weapons.length)]
+        let conflict =weapons[new random().nextInt(weapons.length)]
+        document.enemyZone.append(conflict)
     }    
     if (choice===enemy){
         return("You tie")
@@ -64,5 +65,13 @@ function RPS(choice,enemy) {
         }
     }
     
+}*/
+function playCard(url){
+    let choice=playCard(url)
+    choice.addEventListener('click', function() {
+        choice.remove()
+        let weapon = document.createElement('img')
+        weapon.src = playZone.append(weapon)
+    })
 }
-console.log(RPS(choice, enemy))
+/*console.log(RPS(choice, enemy))*/

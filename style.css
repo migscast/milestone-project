@@ -23,7 +23,7 @@ h1,h2{
     border: 1px solid black;
    
 }
-#playZone{
+#playZone, #enemyZone{
     border:1px solid white;
     background-color: rgb(11, 105, 182);
     display:block;
@@ -53,4 +53,10 @@ img{
 .playerCards, .enemyCards {
     display:flex;
     justify-content: center;
+}
+button{
+    
+    display: flex;
+    justify-content: center;
+    margin:auto
 }
