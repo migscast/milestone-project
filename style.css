@@ -15,10 +15,10 @@ h1,h2{
     filter:none;
     transform: scale(1.1)
 }
-#enemy, #playZone, #enemyZone:hover {
+#enemycard, #playZone, #enemyZone:hover {
     transform:none
 }
-#enemy{
+#enemycard{
     background-color: crimson;
     border: 1px solid black;
    
