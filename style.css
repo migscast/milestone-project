@@ -15,7 +15,7 @@ h1,h2{
     filter:none;
     transform: scale(1.1)
 }
-#enemy, #playZone:hover {
+#enemy, #playZone, #enemyZone:hover {
     transform:none
 }
 #enemy{
@@ -50,7 +50,7 @@ img{
     height:250px;
     object-fit: cover;
 }
-.playerCards, .enemyCards {
+#playerCards, .enemyCards {
     display:flex;
     justify-content: center;
 }

@@ -13,13 +13,57 @@ option to play again
 */
 const weapons = ["hammer", "sword", "shield", "spear", "knife"]
 
-/* function RPS(choice,enemy) {
-    let choice = 
-        
-    }),
-    function enemy() {
-        let conflict =weapons[new random().nextInt(weapons.length)]
-        document.enemyZone.append(conflict)
+var playerCardsContainer = document.getElementById('playerCards')
+
+const playZoneContainer = document.getElementById('playZone')
+
+const enemyPlayZoneContainer = document.getElementById('enemyZone')
+
+let currentlyPlayingCard = false
+
+function createNewCard(url){
+    let card = document.createElement('img')
+
+    card.src = url
+    
+    card.classList.add('card')  
+       card.addEventListener('click', function() {
+           if (currentlyPlayingCard === true) return
+           
+           playZoneContainer.append(card)
+            card.style.margin = 'auto'
+           currentlyPlayingCard = true
+
+           card.addEventListener('click', function() {
+                if (currentlyPlayingCard === true)
+                playerCardsContainer.append(card)
+                card.style.margin = '10px'
+                currentlyPlayingCard = false
+           })          
+       })       
+    playerCardsContainer.append(card)
+    return card
+}
+
+
+window.addEventListener('load', () => {
+    createNewCard('pictures/standard sword.jpg')
+    createNewCard('pictures/standard shield.jpg')
+    createNewCard('pictures/standard hammer.webp')
+    createNewCard('pictures/standard knife.jpg')
+    createNewCard('pictures/standard spear.jpg')
+  });
+  
+/*let aiSelection = math.random()
+
+  if(aiSelection<.20) {
+      aiSelection = 'sword'
+
+  }
+
+    function compareCards() {
+        let enemyChoice =weapons[new random().nextInt(weapons.length)]
+        enemyPlayZoneContainer.append(enemyChoice)
     }    
     if (choice===enemy){
         return("You tie")
@@ -66,12 +110,4 @@ const weapons = ["hammer", "sword", "shield", "spear", "knife"]
     }
     
 }*/
-function playCard(url){
-    let choice=playCard(url)
-    choice.addEventListener('click', function() {
-        choice.remove()
-        let weapon = document.createElement('img')
-        weapon.src = playZone.append(weapon)
-    })
-}
-/*console.log(RPS(choice, enemy))*/
+
