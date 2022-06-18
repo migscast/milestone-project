@@ -17,16 +17,20 @@ var playerCardsContainer = document.getElementById('playerCards')
 
 const playZoneContainer = document.getElementById('playZone')
 
-const enemyPlayZoneContainer = document.getElementById('aiSelectionZone')
+const enemyPlayZoneContainer = document.getElementById('enemyZone')
 
 let currentlyPlayingCard = false
+
+let currentlyPlayingEnemyCard = false
+
+let button = document.getElementById('playButton')
 
 function createNewCard(url, typeOfCard){
     let card = document.createElement('img')
     
     card.src = url
 
-    var typeOfCard = 
+    var typeOfCard
     
     card.classList.add('card')
     function playCard(){  
@@ -55,9 +59,14 @@ function playEnemyCard (url){
     let enemyCard = document.createElement('img')
     enemyCard.src = url
     enemyCard.classList.add('card')
-    enemyCard.classList.add('enemycard')
-    enemyCard.style.margin('auto')
+    
+    if (currentlyPlayingEnemyCard === true) return           
     enemyPlayZoneContainer.append(enemyCard)
+    enemyCard.style.margin = 'auto'
+    currentlyPlayingEnemyCard = true
+
+    
+    
     return enemyCard
 }
 
@@ -69,70 +78,70 @@ window.addEventListener('load', () => {
     createNewCard('pictures/standard spear.jpg','spear')
   });
   
-let aiSelection = Math.floor(Math.random()*5)
+ let aiSelection = Math.floor(Math.random()*5)
 
-  if(aiSelection = 0) {
-      aiSelection = 'sword'
-    }else if (aiSelection = 1){
-        aiSelection = 'hammer'
-    } else if (aiSelection = 2) {
-        aiSelection = 'shield'
-    } else if (aiSelection = 3) {
-        aiSelection = 'knife'
-    }else {aiSelection = 'spear'}
+   if(aiSelection = 0) {
+       aiSelection = 'sword'
+     }else if (aiSelection = 1){
+         aiSelection = 'hammer'
+     } else if (aiSelection = 2) {
+         aiSelection = 'shield'
+     } else if (aiSelection = 3) {
+         aiSelection = 'knife'
+     }else {aiSelection = 'spear'}
 
-    let userCard = playZoneContainer.firstChild
+     let userCard = playZoneContainer.firstChild
 
-    let fight = function(selectedCard, enemySelection) {
+     let fight = function(selectedCard, enemySelection) {
         
         
-    if (selectedCard===enemySelection){
-        window.prompt("You tie")
-    }
-    else if (selectedCard=== "hammer"){
-        if(enemySelection==="shield" || "spear"){
-            window.prompt("You win")
-        }
-        else (enemySelection==="sword" || "knife")
-            window.prompt("You lose")
+     if (selectedCard===enemySelection){
+         window.prompt("You tie")
+     }
+     else if (selectedCard=== "hammer"){
+         if(enemySelection==="shield" || "spear"){
+             window.prompt("You win")
+         }
+         else if(enemySelection==="sword" || "knife")
+             window.prompt("You lose")
         
-    }
-    else if (selectedCard=== "sword"){
-        if(enemySelection==="knife" || "hammer"){
-            window.prompt("You win")
-        }
-        else (enemySelection==="shield" || "spear")
-            window.prompt("You lose")
+     }
+     else if (selectedCard=== "sword"){
+         if(enemySelection==="knife" || "hammer"){
+             window.prompt("You win")
+         }
+         else (enemySelection==="shield" || "spear")
+             window.prompt("You lose")
         
-    }
-    else if (selectedCard=== "knife"){
-        if(enemySelection==="sword" || "spear"){
-            window.prompt("You lose")
-        }
-        else (enemySelection==="shield" || "hammer")
-            window.prompt("You win")
+     }
+     else if (selectedCard=== "knife"){
+         if(enemySelection==="sword" || "spear"){
+             window.prompt("You lose")
+         }
+         else if (enemySelection==="shield" || "hammer")
+             window.prompt("You win")
         
-    }
-    else if (selectedCard=== "spear"){
-        if(enemySelection==="sword" || "knife"){
-            window.prompt("You win")
-        }
-        else (enemySelection==="shield" || "hammer")
-            window.prompt("You lose")
+     }
+     else if (selectedCard=== "spear"){
+         if(enemySelection==="sword" || "knife"){
+             window.prompt("You win")
+         }
+         else if (enemySelection==="shield" || "hammer")
+             window.prompt("You lose")
+       
+     }
+     else if(selectedCard=== "shield")
+         if(enemySelection==="sword" || "spear"){
+             window.prompt("You win")
+         }
+         else (enemySelection==="hammer" || "knife")
+             window.prompt("You lose")
         
-    }
-    else (selectedCard=== "shield")
-        if(enemySelection==="sword" || "spear"){
-            window.prompt("You win")
-        }
-        else (enemySelection==="hammer" || "knife")
-            window.prompt("You lose")
-        
-    }
+     }
     
     button.addEventListener('click', ()=> {
-        playEnemyCard()
-        fight(userCard, aiSelection)
+        playEnemyCard('pictures/standard sword.jpg')
+         fight(userCard, aiSelection)
     })
 
 
