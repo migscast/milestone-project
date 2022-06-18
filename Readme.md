@@ -9,4 +9,4 @@ spear>sword/knife
 select card (can deselect card if changed mind)
 press fight to compare cards
 allow for choice to play again
-allow for wins to be recorded along wwith win streak
+allow for wins to be recorded along with win streak

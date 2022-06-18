@@ -11,7 +11,21 @@ record results
 option to play again
 
 */
-const weapons = ["hammer", "sword", "shield", "spear", "knife"]
+let sword = 'sword'
+let shield = 'shield'
+let hammer ='hammer'
+let spear = 'spear'
+let knife='knife' 
+
+const urls={
+    sword:'pictures/standard sword.jpg',
+    shield:'pictures/standard shield.jpg',
+    hammer:'pictures/standard hammer.webp',
+    spear:'pictures/standard spear.jpg',
+    knife:'pictures/standard knife.jpg',
+}
+
+let aiSelection
 
 var playerCardsContainer = document.getElementById('playerCards')
 
@@ -25,12 +39,14 @@ let currentlyPlayingEnemyCard = false
 
 let button = document.getElementById('playButton')
 
+
+
 function createNewCard(url, typeOfCard){
     let card = document.createElement('img')
     
     card.src = url
 
-    var typeOfCard
+    card.id= typeOfCard 
     
     card.classList.add('card')
     function playCard(){  
@@ -77,22 +93,25 @@ window.addEventListener('load', () => {
     createNewCard('pictures/standard knife.jpg','knife')
     createNewCard('pictures/standard spear.jpg','spear')
   });
-  
- let aiSelection = Math.floor(Math.random()*5)
 
-   if(aiSelection = 0) {
-       aiSelection = 'sword'
-     }else if (aiSelection = 1){
-         aiSelection = 'hammer'
-     } else if (aiSelection = 2) {
-         aiSelection = 'shield'
-     } else if (aiSelection = 3) {
-         aiSelection = 'knife'
-     }else {aiSelection = 'spear'}
-
+  function getAiSelection(){
+let aiSelection = Math.floor(Math.random()*5)
+    return aiSelection
+  }
+  function assignAiSelection(selection){
+   if(selection === 0) {
+    return 'sword'
+     }else if (selection === 1){
+        return 'hammer'
+     } else if (selection === 2) {
+        return  'shield'
+     } else if (selection === 3) {
+        return  'knife'
+     }else {return'spear'}
+  }
      let userCard = playZoneContainer.firstChild
 
-     let fight = function(selectedCard, enemySelection) {
+    function fight (selectedCard, enemySelection) {
         
         
      if (selectedCard===enemySelection){
@@ -140,7 +159,9 @@ window.addEventListener('load', () => {
      }
     
     button.addEventListener('click', ()=> {
-        playEnemyCard('pictures/standard sword.jpg')
+        const randomNumber=getAiSelection()
+        const aiSelection=assignAiSelection(randomNumber)
+        playEnemyCard(urls[aiSelection])
          fight(userCard, aiSelection)
     })
 
