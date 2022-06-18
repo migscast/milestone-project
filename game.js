@@ -51,7 +51,15 @@ function createNewCard(url, typeOfCard){
     return card
 }
 
-
+function playEnemyCard (url){
+    let enemyCard = document.createElement('img')
+    enemyCard.src = url
+    enemyCard.classList.add('card')
+    enemyCard.classList.add('enemycard')
+    enemyCard.style.margin('auto')
+    enemyPlayZoneContainer.append(enemyCard)
+    return enemyCard
+}
 
 window.addEventListener('load', () => {
     createNewCard('pictures/standard sword.jpg', 'sword')
@@ -123,7 +131,7 @@ let aiSelection = Math.floor(Math.random()*5)
     }
     
     button.addEventListener('click', ()=> {
-        enemyPlayZoneContainer.append(aiSelection)
+        playEnemyCard()
         fight(userCard, aiSelection)
     })
 
